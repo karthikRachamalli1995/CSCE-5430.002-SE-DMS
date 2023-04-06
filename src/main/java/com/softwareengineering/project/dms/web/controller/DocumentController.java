@@ -29,6 +29,12 @@ public class DocumentController {
         return new ResponseEntity<>(OK);
     }
 
+    @PutMapping(value = "/{fileid}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<Resource> updateDocument(@PathVariable("fileid") String fileId, @RequestPart("file") MultipartFile file) {
+        documentService.updateDocument(fileId, file);
+        return new ResponseEntity<>(OK);
+    }
+
     @PutMapping(value = "/{fileid}/metadata", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<Resource> updateMetadata(@PathVariable("fileid") String fileId, @RequestPart("metadata") String metadata) {
         documentService.updateMetadata(fileId, metadata);

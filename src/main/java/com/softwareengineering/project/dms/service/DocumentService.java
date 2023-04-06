@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 public interface DocumentService {
     void storeDocument(MultipartFile file, String metadata);
 
+    void updateDocument(String fileId, MultipartFile file);
+
     void updateMetadata(String fileId, String metadata);
 
     Document fetchDocument(String id);

@@ -36,6 +36,23 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
+    public void updateDocument(String fileId, MultipartFile file) {
+        try {
+            Optional<Document> documentOptional = documentRepository.findById(fileId);
+            if (documentOptional.isPresent()) {
+                Document document = documentOptional.get();
+                document.setFileName(file.getOriginalFilename());
+                document.setFileType(file.getContentType());
+                document.setData(file.getBytes());
+                documentRepository.save(document);
+            }
+        } catch (Exception ex) {
+            String errorMessage = String.format("Failed to update the file with id: %s", fileId);
+            System.err.println(errorMessage + ", due to: " + ex);
+        }
+    }
+
+    @Override
     public void updateMetadata(String fileId, String metadata) {
         try {
             Optional<Document> documentOptional = documentRepository.findById(fileId);
