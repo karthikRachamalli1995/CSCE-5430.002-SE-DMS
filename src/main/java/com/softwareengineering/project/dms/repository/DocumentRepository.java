@@ -1,7 +1,6 @@
 package com.softwareengineering.project.dms.repository;
 
 import com.softwareengineering.project.dms.model.Document;
-import com.softwareengineering.project.dms.web.resource.DocumentResource;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

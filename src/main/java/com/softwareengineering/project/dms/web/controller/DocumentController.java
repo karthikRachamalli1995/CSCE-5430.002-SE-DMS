@@ -30,13 +30,13 @@ public class DocumentController {
     }
 
     @PutMapping(value = "/{fileid}", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<Resource> updateDocument(@PathVariable("fileid") String fileId, @RequestPart("file") MultipartFile file) {
+    public ResponseEntity<HttpStatus> updateDocument(@PathVariable("fileid") String fileId, @RequestPart("file") MultipartFile file) {
         documentService.updateDocument(fileId, file);
         return new ResponseEntity<>(OK);
     }
 
     @PutMapping(value = "/{fileid}/metadata", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<Resource> updateMetadata(@PathVariable("fileid") String fileId, @RequestPart("metadata") String metadata) {
+    public ResponseEntity<HttpStatus> updateMetadata(@PathVariable("fileid") String fileId, @RequestPart("metadata") String metadata) {
         documentService.updateMetadata(fileId, metadata);
         return new ResponseEntity<>(OK);
     }
@@ -44,7 +44,10 @@ public class DocumentController {
     @GetMapping("/{fileid}")
     public ResponseEntity<Resource> fetchDocument(@PathVariable("fileid") String fileId) {
         Document document = documentService.fetchDocument(fileId);
-        return ResponseEntity.ok().contentType(MediaType.parseMediaType(document.getFileType())).header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + document.getFileName() + "\"").body(new ByteArrayResource(document.getData()));
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(document.getFileType()))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + document.getFileName() + "\"")
+                .body(new ByteArrayResource(document.getData()));
     }
 
     @DeleteMapping("/{fileid}")

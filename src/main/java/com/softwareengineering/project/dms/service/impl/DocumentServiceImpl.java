@@ -81,7 +81,15 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public DocumentSearchResponse searchDocuments(DocumentSearchResource resource) {
         List<Document> documents = documentRepository.searchMetadata(resource.getSearchText());
-        List<DocumentResource> documentResources = documents.stream().map(document -> DocumentResource.builder().fileId(document.getId()).fileName(document.getFileName()).fileType(document.getFileType()).metadata(document.getMetadata()).build()).collect(Collectors.toList());
+        List<DocumentResource> documentResources = documents.stream()
+                .map(document ->
+                        DocumentResource.builder()
+                                .fileId(document.getId())
+                                .fileName(document.getFileName())
+                                .fileType(document.getFileType())
+                                .metadata(document.getMetadata())
+                                .build()
+                ).collect(Collectors.toList());
         return DocumentSearchResponse.builder().results(documentResources).build();
     }
 }
