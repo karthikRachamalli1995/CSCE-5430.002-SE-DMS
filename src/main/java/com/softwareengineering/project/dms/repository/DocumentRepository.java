@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface DocumentRepository extends JpaRepository<Document, String> {
 
+    // Native Query to operate full text search on meta_data column.
     @Query(value = "select * from Document where dbms_lob.instr(meta_data, :fullTextSearchString) > 0", nativeQuery = true)
     List<Document> searchMetadata(String fullTextSearchString);
 }
