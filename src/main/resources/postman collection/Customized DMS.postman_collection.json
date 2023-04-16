@@ -1,0 +1,193 @@
+{
+	"info": {
+		"name": "Customized DMS",
+		"_postman_id": "9cd3b556-e1f6-0f9f-c06c-a7c3452ec2b8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store Documents",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "",
+							"type": "file",
+							"src": "apple.jpeg"
+						},
+						{
+							"key": "metadata",
+							"value": "{\"fruit\":\"apple\"}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8091/dms/documents/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"dms",
+						"documents",
+						"store"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET Documents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8091/dms/documents/fec53585-f144-4afd-b082-333a83c398fa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"dms",
+						"documents",
+						"fec53585-f144-4afd-b082-333a83c398fa"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Documents",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8091/dms/documents/fec53585-f144-4afd-b082-333a83c398fa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"dms",
+						"documents",
+						"fec53585-f144-4afd-b082-333a83c398fa"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Metadata",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "metadata",
+							"value": "{\n\n“firstName”: “karthik”,\n\n“lastName” :”Sakthi”,\n\n“age”: 10,\n\n“place”: “Chennai”\n\n}",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8091/dms/documents/eb4f2f79-5a33-485d-b4e7-659adcbb5afd/metadata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"dms",
+						"documents",
+						"eb4f2f79-5a33-485d-b4e7-659adcbb5afd",
+						"metadata"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Extensive Search on Document",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"searchText\" : \"bird\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8091/dms/documents/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"dms",
+						"documents",
+						"search"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Document",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "",
+							"type": "file",
+							"src": "yellow car.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8091/dms/documents/fec53585-f144-4afd-b082-333a83c398fa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"dms",
+						"documents",
+						"fec53585-f144-4afd-b082-333a83c398fa"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
