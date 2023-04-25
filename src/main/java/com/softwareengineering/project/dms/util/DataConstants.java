@@ -6,6 +6,7 @@ public class DataConstants {
 
     public static final HashMap<String, String> AUTH_ROLES = new HashMap<>();
 
+    // Roles for each functionality.
     static {
         AUTH_ROLES.put("UPLOAD", "UPLOAD_ROLE");
         AUTH_ROLES.put("UPDATE", "UPDATE_ROLE");
