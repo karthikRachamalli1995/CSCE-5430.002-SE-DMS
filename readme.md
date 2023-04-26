@@ -18,3 +18,8 @@
 * Once, we made sure that our server is up and running, we can access the REST API endpoints by following the documentation and demo video.
 * Please find my postman collection in "resources/postman collection" folder, from here we can import the endpoints into the postman. we can follow the tutorial present in - https://youtube.com/clip/UgkxUyBDRO5Za8nX3HRdBecYAACByKgqTbX-
 * Please find the Manual Testcases in "Results & Analysis" section of the documentation and please find the result screenshots in "resources/output" folder.
+
+Increment 2-
+
+* For increment 2 features, Please find my postman collection in "resources/postman collection" folder, from here we can import the endpoints into the postman. we can follow the tutorial present in - https://youtube.com/clip/UgkxUyBDRO5Za8nX3HRdBecYAACByKgqTbX-
+* For increment 2 features, Please find the Manual Testcases in "Results & Analysis" section of the documentation and please find the result screenshots in "resources/output/increment 2" folder.
